@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibing Cat & Colorful Heart</title>
+    <style>
+        /* Thiết lập cơ bản cho trang web */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #2b1055, #7597de); /* Màu nền tím/xanh phong cách Vaporwave */
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+        }
+
+        /* Container chính chứa mọi thứ */
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        /* Vùng chứa trái tim */
+        .heart-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: bounce 0.8s infinite alternate; /* Hiệu ứng nảy theo nhịp */
+        }
+
+        /* Vẽ trái tim bằng CSS */
+        .heart {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(to bottom, #ff00cc, #333399); /* Màu trái tim cầu vồng/neon */
+            transform: rotate(-45deg);
+            box-shadow: 0 0 20px rgba(255, 0, 204, 0.6);
+            z-index: 1;
+        }
+
+        /* Tạo hình tròn cho 2 đỉnh trái tim */
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: inherit; /* Lấy màu giống thân trái tim */
+            border-radius: 50%;
+            box-shadow: inherit;
+        }
+
+        .heart::before {
+            top: -100px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 100px;
+            top: 0;
+        }
+
+        /* Định dạng ảnh con mèo */
+        .cat-image {
+            position: absolute;
+            z-index: 10; /* Nằm đè lên trên trái tim */
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            /* Một chút hiệu ứng bóng đổ cho mèo nổi bật */
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        /* Dòng chữ bên dưới */
+        .vibing-text {
+            margin-top: 50px;
+            color: #fff;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 0px #ff00cc;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        /* --- CÁC HIỆU ỨNG ĐỘNG (ANIMATION) --- */
+        
+        /* Hiệu ứng nảy của cả khối */
+        @keyframes bounce {
+            0% { transform: scale(1); }
+100% { transform: scale(1.1); }
+        }
+
+        /* Hiệu ứng chữ phát sáng */
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #fff, 0 0 20px #ff00cc; }
+            to { text-shadow: 0 0 20px #fff, 0 0 30px #333399; }
+        }
+
+        /* Hiệu ứng hạt lấp lánh nền (trang trí thêm) */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars"></div>
+
+    <div class="container">
+        <div class="heart-wrapper">
+            <div class="heart"></div>
+            
+            <img src="..\image\dancing-cat-dancing-kitten.gif" alt="Dancing Cat" class="cat-image">
+        </div>
+
+        <div class="vibing-text">Vibing with Cat</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+HTTP:https://github.com/PDA-cyber/test.git
+
+SSH:git@github.com:PDA-cyber/test.git
+
+echo "# test" >> README.md
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/PDA-cyber/test.git
+git push -u origin main
+
+git remote add origin https://github.com/PDA-cyber/test.git
+git branch -M main
+git push -u origin main
